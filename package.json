@@ -20,7 +20,7 @@
     "build": "npm-run-all build-css build-js",
     "start": "npm-run-all watch-css start-js",
     "clean": "npm run clean-css && nwb clean-module && nwb clean-demo",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run clean && npm run build",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
