@@ -1,0 +1,128 @@
+@import './colours';
+@import './mixins/progress-stripes';
+
+
+.Button {
+  padding: 9px 20px 8px;
+  padding: 0 20px;
+
+  border: 1px solid $slate-grey-90;
+  border-radius: 4px;
+
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 32px;
+  color: $slate-grey-30;
+}
+
+.Button:focus {
+  outline: 0;
+}
+
+
+.Button:hover {
+  background-color: $slate-grey-95;
+}
+
+.Button:active {
+  background-color: $slate-grey-60;
+  color: white;
+}
+
+.Button:focus,
+.Button:active {
+  box-shadow: 0 0 0 4px transparentize($slate-grey-90, 0.5);
+}
+
+
+.Button--primary {
+  background-color: $bright-blue-95;
+  font-weight: bold;
+
+  &:hover { background-color: $bright-blue-85; }
+  &:active { background-color: $bright-blue-75; }
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 4px transparentize($bright-blue-95, 0.5);
+  }
+}
+
+
+.Button--secondary {
+  background-color: $slate-grey-90;
+
+  &:hover { background-color: $slate-grey-80; }
+  &:active { background-color: $slate-grey-70; }
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 4px transparentize($slate-grey-90, 0.5);
+  }
+}
+
+.Button--inverted {
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,.6);
+  color: white;
+
+  &:hover { background-color: rgba(255,255,255,.2); }
+  &:active {
+    background-color: rgba(255,255,255,.8);
+    color: $slate-grey-30;
+  }
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 4px rgba(255,255,255,.2);
+  }
+}
+
+
+
+.Button--compact {
+  padding: 0 10px;
+}
+
+
+
+// Add extra specificity to disabled styling to ensure it overrides other styles
+.Button--disabled.Button--disabled {
+  // opacity: .7;
+  box-shadow: none;
+  cursor: not-allowed;
+
+  border-color: transparentize($slate-grey-70, .7);
+  color: $slate-grey-70;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: inherit;
+    box-shadow: none;
+  }
+
+  &.Button--primary {
+    background-color: $bright-blue-100;
+    color: $slate-grey-50;
+  }
+}
+
+
+
+.Button--full-width {
+  width: 100%;
+}
+
+.Button--half-width {
+  width: calc(50% - .5em);
+}
+
+.Button--half-width + .Button--half-width {
+  margin-left: 1em;
+}
+
+
+.Button--processing {
+  @include progress-stripes(
+    transparentize(white, 0.8),
+    transparentize(white, 1)
+  );
+}

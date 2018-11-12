@@ -1,0 +1,22 @@
+$progress-stripe-size: 50px;
+
+@keyframes progress-stripes {
+  from { background-position: 0 0 }
+  to { background-position: $progress-stripe-size 0 }
+}
+
+@mixin progress-stripes($color1, $color2) {
+  background-image: linear-gradient(
+    135deg,
+    $color1 0%,
+    $color1 25%,
+    $color2 25%,
+    $color2 50%,
+    $color1 50%,
+    $color1 75%,
+    $color2 75%,
+    $color2 100%
+  );
+  background-size: $progress-stripe-size $progress-stripe-size;
+  animation: progress-stripes 1s linear infinite;
+}
