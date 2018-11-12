@@ -6,3 +6,4 @@
 /umd
 /css
 npm-debug.log*
+/.cache
